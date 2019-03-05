@@ -11,8 +11,8 @@ public class bank {
 	String input;
 
 	public void openBank() {
-		choice = scan.nextInt()9;;
-		scan.nextLine();
+		choice = scan.nextInt();
+		scan.nextLine();;;
 		if (choice == 1) {
 			login();
 		} else if (choice == 2) {
