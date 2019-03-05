@@ -12,7 +12,7 @@ public class bank {
 
 	public void openBank() {
 		choice = scan.nextInt();
-		scan.nextLine();;;
+		scan.nextLine();
 		if (choice == 1) {
 			login();
 		} else if (choice == 2) {
