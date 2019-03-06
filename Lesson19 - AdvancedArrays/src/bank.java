@@ -36,11 +36,13 @@ public class bank {
 	public void login() {
 		System.out.println("Please enter your name.");
 		input = scan.nextLine();
+		for (; place < clients.length; place++) {
+
 		if (clients[place] == null) {
 			System.out.println("There are no accounts created. Please create an account first.");
 			menu();
+		
 		} else {
-			for (; place < clients.length; place++) {
 				if (clients[place] != null && clients[place].getName().equals(input)) {
 					System.out.println("Welcome " + input + "!");
 					menuAccount(place);
