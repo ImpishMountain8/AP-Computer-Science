@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.ArrayList;
 
 public class bank {
 
@@ -9,6 +10,7 @@ public class bank {
 	int choice;
 	int choice1;
 	String input;
+	ArrayList aryLst = new ArrayList();
 
 	public void openBank() {
 		choice = scan.nextInt();
@@ -36,23 +38,28 @@ public class bank {
 	public void login() {
 		System.out.println("Please enter your name.");
 		input = scan.nextLine();
-		for (; place < clients.length; place++) {
 
-		if (clients[place] == null) {
-			System.out.println("There are no accounts created. Please create an account first.");
-			menu();
-		
-		} else {
-				if (clients[place] != null && clients[place].getName().equals(input)) {
-					System.out.println("Welcome " + input + "!");
-					menuAccount(place);
-					break;
-				}else if (!clients[place].getName().equals(input)) {
-					System.out.println("We don't recognize that account name. Please try again.");
-					menu();
-				} else {
-					continue;
-				
+		for (; place < clients.length; place++) {
+			if (clients[place] == null) {
+				System.out.println("There are no accounts created. Please create an account first.");
+				menu();
+
+			} else {
+
+				for (; place < clients.length; place++) {
+					if (clients[place] != null && clients[place].getName().equals(input)) {
+						System.out.println("Welcome " + input + "!");
+						menuAccount(place);
+						break;
+
+					} else if (!clients[place].getName().equals(input)) {
+						System.out.println("We don't recognize that account name. Please try again.");
+						menu();
+
+					} else {
+
+						continue;
+					}
 				}
 			}
 		}
@@ -91,7 +98,7 @@ public class bank {
 	public void closeAccount(int place) {
 		clients[place] = null;
 		System.out.println("Your account has been successfully terminated.");
-		numBankAccounts--;
+		clients[place] = aryLst.remove(place);
 		menu();
 	}
 
